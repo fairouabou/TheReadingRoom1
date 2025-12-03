@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.thereadingroom.controllers.AnalyticsController">
+
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="12" style="-fx-padding: 20;">
+            <Button text="← Back"
+                    onAction="#onBack"
+                    style="-fx-font-size: 16px; -fx-background-color: #D7C4A3;"/>
+            <Label text="My Reading Statistics"
+                   style="-fx-font-size: 22px; -fx-padding: 0 0 0 10;"/>
+        </HBox>
+    </top>
+
+    <center>
+        <PieChart fx:id="pieChart" title="Books per List Type"/>
+    </center>
+
+</BorderPane>

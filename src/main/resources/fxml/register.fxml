@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.thereadingroom.ui.RegisterController"
+            prefWidth="900" prefHeight="600"
+            style="-fx-background-color: #F8F1E7;">
+
+    <VBox alignment="CENTER" spacing="20" prefWidth="400"
+          layoutX="250" layoutY="120"
+          style="-fx-background-color: white;
+                 -fx-background-radius: 25;
+                 -fx-padding: 40;
+                 -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 20, 0.2, 0, 4);">
+
+        <!-- Title -->
+        <Label text="Create Account"
+               style="-fx-font-size: 26px;
+                      -fx-font-weight: bold;
+                      -fx-text-fill: #4A4A4A;" />
+
+        <!-- Username -->
+        <TextField fx:id="usernameField"
+                   promptText="Username"
+                   style="-fx-background-radius: 20; -fx-padding: 10;" />
+
+        <!-- Email -->
+        <TextField fx:id="emailField"
+                   promptText="Email"
+                   style="-fx-background-radius: 20; -fx-padding: 10;" />
+
+        <!-- Password -->
+        <PasswordField fx:id="passwordField"
+                       promptText="Password"
+                       style="-fx-background-radius: 20; -fx-padding: 10;" />
+
+        <!-- Register Button -->
+        <Button fx:id="registerButton"
+                text="Create Account"
+                onAction="#onRegister"
+                style="-fx-background-color: #EFCFA6;
+                       -fx-background-radius: 20;
+                       -fx-padding: 10 30;
+                       -fx-font-size: 16px;" />
+
+        <!-- Login Link -->
+        <Hyperlink text="Already have an account? Login"
+                   onAction="#onGoToLogin"
+                   style="-fx-text-fill: #A67A44;" />
+
+        <!-- Message Label -->
+        <Label fx:id="messageLabel" text="" />
+
+    </VBox>
+
+</AnchorPane>

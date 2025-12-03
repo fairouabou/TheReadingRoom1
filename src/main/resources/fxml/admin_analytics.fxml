@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.thereadingroom.controllers.AdminAnalyticsController"
+            prefWidth="1000" prefHeight="650"
+            style="-fx-background-color: #F8F1E7;">
+
+    <!-- HEADER -->
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="20"
+              style="-fx-padding: 20 30;">
+            <Button text="⬅ Back"
+                    onAction="#onBack"
+                    style="-fx-background-color: #EFCFA6;
+                           -fx-background-radius: 20;
+                           -fx-padding: 8 20;
+                           -fx-font-size: 16px;"/>
+
+            <Label text="Admin Analytics"
+                   style="-fx-font-size: 28px;
+                          -fx-font-weight: bold;
+                          -fx-text-fill: #4A4A4A;" />
+        </HBox>
+    </top>
+
+    <!-- TABS -->
+    <center>
+        <TabPane fx:id="tabPane"
+                 tabClosingPolicy="UNAVAILABLE"
+                 style="-fx-background-color: transparent;
+                        -fx-padding: 15;">
+
+            <!-- TAB 1 – OVERVIEW -->
+            <Tab text="Overview">
+                <ScrollPane fitToWidth="true" style="-fx-background-color: transparent;">
+                    <VBox spacing="25" style="-fx-padding: 30;">
+
+                        <Label text="Key Performance Indicators"
+                               style="-fx-font-size: 22px;
+                                      -fx-font-weight: bold;
+                                      -fx-text-fill: #4A4A4A;" />
+
+                        <!-- KPI CARDS -->
+                        <GridPane hgap="30" vgap="20">
+
+                            <!-- CARD 1 -->
+                            <VBox style="-fx-background-color: white;
+                                         -fx-background-radius: 20;
+                                         -fx-padding: 20;
+                                         -fx-pref-width: 240;
+                                         -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0.2, 0, 3);"
+                                  GridPane.rowIndex="0" GridPane.columnIndex="0">
+                                <Label text="Total Users" style="-fx-font-size: 16px;"/>
+                                <Label fx:id="lblUsers"
+                                       style="-fx-font-size: 26px; -fx-font-weight: bold;" />
+                            </VBox>
+
+                            <!-- CARD 2 -->
+                            <VBox style="-fx-background-color: white;
+                                         -fx-background-radius: 20;
+                                         -fx-padding: 20;
+                                         -fx-pref-width: 240;
+                                         -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0.2, 0, 3);"
+                                  GridPane.rowIndex="0" GridPane.columnIndex="1">
+                                <Label text="Total Books" style="-fx-font-size: 16px;"/>
+                                <Label fx:id="lblBooks"
+                                       style="-fx-font-size: 26px; -fx-font-weight: bold;" />
+                            </VBox>
+
+                            <!-- CARD 3 -->
+                            <VBox style="-fx-background-color: white;
+                                         -fx-background-radius: 20;
+                                         -fx-padding: 20;
+                                         -fx-pref-width: 240;
+                                         -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0.2, 0, 3);"
+                                  GridPane.rowIndex="1" GridPane.columnIndex="0">
+                                <Label text="Have Read" style="-fx-font-size: 16px;"/>
+                                <Label fx:id="lblHaveRead"
+                                       style="-fx-font-size: 26px; -fx-font-weight: bold;" />
+                            </VBox>
+
+                            <!-- CARD 4 -->
+                            <VBox style="-fx-background-color: white;
+                                         -fx-background-radius: 20;
+                                         -fx-padding: 20;
+                                         -fx-pref-width: 240;
+                                         -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0.2, 0, 3);"
+                                  GridPane.rowIndex="1" GridPane.columnIndex="1">
+                                <Label text="Want to Read" style="-fx-font-size: 16px;"/>
+                                <Label fx:id="lblWantToRead"
+                                       style="-fx-font-size: 26px; -fx-font-weight: bold;" />
+                            </VBox>
+
+                            <!-- CARD 5 -->
+                            <VBox style="-fx-background-color: white;
+                                         -fx-background-radius: 20;
+                                         -fx-padding: 20;
+                                         -fx-pref-width: 240;
+                                         -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0.2, 0, 3);"
+                                  GridPane.rowIndex="2" GridPane.columnIndex="0">
+                                <Label text="Currently Reading" style="-fx-font-size: 16px;"/>
+                                <Label fx:id="lblCurrentlyReading"
+                                       style="-fx-font-size: 26px; -fx-font-weight: bold;" />
+                            </VBox>
+
+                            <!-- CARD 6 -->
+                            <VBox style="-fx-background-color: white;
+                                         -fx-background-radius: 20;
+                                         -fx-padding: 20;
+                                         -fx-pref-width: 240;
+                                         -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0.2, 0, 3);"
+                                  GridPane.rowIndex="2" GridPane.columnIndex="1">
+                                <Label text="Most Popular List"
+                                       style="-fx-font-size: 16px;"/>
+                                <Label fx:id="lblMostPopularType"
+                                       style="-fx-font-size: 26px; -fx-font-weight: bold;" />
+                            </VBox>
+
+                        </GridPane>
+                    </VBox>
+                </ScrollPane>
+            </Tab>
+
+            <!-- TAB 2 – POPULAR BOOKS -->
+            <Tab text="Popular Books">
+                <VBox spacing="20" style="-fx-padding: 30;">
+                    <Label text="Most Popular Books"
+                           style="-fx-font-size: 22px; -fx-font-weight: bold;" />
+
+                    <BarChart fx:id="booksChart">
+                        <xAxis><CategoryAxis label="Book Title"/></xAxis>
+                        <yAxis><NumberAxis label="Times Added"/></yAxis>
+                    </BarChart>
+                </VBox>
+            </Tab>
+
+            <!-- TAB 3 – TOP AUTHORS -->
+            <Tab text="Top Authors">
+                <VBox spacing="20" style="-fx-padding: 30;">
+                    <Label text="Top Authors"
+                           style="-fx-font-size: 22px; -fx-font-weight: bold;" />
+
+                    <BarChart fx:id="authorsChart">
+                        <xAxis><CategoryAxis label="Author"/></xAxis>
+                        <yAxis><NumberAxis label="Books Added"/></yAxis>
+                    </BarChart>
+                </VBox>
+            </Tab>
+
+            <!-- TAB 4 – COMPLETION -->
+            <Tab text="Completion">
+                <VBox spacing="20" alignment="CENTER" style="-fx-padding: 30;">
+                    <Label text="Completion Rate"
+                           style="-fx-font-size: 22px; -fx-font-weight: bold;" />
+
+                    <PieChart fx:id="completionChart"
+                              style="-fx-pref-width: 400; -fx-pref-height: 400;"/>
+                </VBox>
+            </Tab>
+
+        </TabPane>
+    </center>
+
+</BorderPane>
