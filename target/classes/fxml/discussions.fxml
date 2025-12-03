@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.thereadingroom.ui.DiscussionsController"
+            prefWidth="1000" prefHeight="650"
+            style="-fx-background-color: #F8F1E7;">
+
+    <top>
+        <HBox spacing="20" alignment="CENTER_LEFT" style="-fx-padding: 20;">
+            <Button text="⬅ Back"
+                    onAction="#onBack"
+                    style="-fx-background-color: #C8935B; -fx-font-size: 16px;"/>
+
+            <Label text="Discussions"
+                   style="-fx-font-size: 24px; -fx-font-weight: bold;"/>
+        </HBox>
+    </top>
+
+    <left>
+        <VBox spacing="10"
+              prefWidth="280"
+              style="-fx-padding: 20; -fx-background-color: #E8D9C5;">
+
+            <HBox alignment="CENTER_LEFT" spacing="10">
+                <Label text="All Discussions"
+                       style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+
+                <Button fx:id="newDiscussionButton"
+                        text="+ New"
+                        onAction="#onNewDiscussion"
+                        style="-fx-background-color: #D7C4A3; -fx-font-size: 14px;"/>
+            </HBox>
+
+            <ListView fx:id="discussionsList" prefHeight="500"/>
+        </VBox>
+    </left>
+
+    <center>
+        <VBox spacing="10" style="-fx-padding: 20 40 40 20;">
+
+            <Label fx:id="discussionTitleLabel"
+                   text="Select a discussion"
+                   style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
+
+            <ListView fx:id="postsList" prefHeight="380"/>
+
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <TextArea fx:id="postContentArea"
+                          promptText="Write a message..."
+                          wrapText="true"
+                          prefHeight="60"
+                          HBox.hgrow="ALWAYS"/>
+
+                <Button text="Post"
+                        onAction="#onSendPost"
+                        style="-fx-background-color: #C8935B; -fx-font-size: 16px;"/>
+            </HBox>
+
+        </VBox>
+    </center>
+
+</BorderPane>

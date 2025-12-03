@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+        <?import javafx.scene.control.*?>
+        <?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.thereadingroom.ui.FriendsController"
+            prefWidth="800" prefHeight="600"
+            style="-fx-background-color: #F8F1E7;">
+
+    <top>
+        <HBox spacing="12" alignment="CENTER_LEFT" style="-fx-padding: 20 40 10 40;">
+            <Label text="My Friends"
+                   style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <TextField fx:id="searchUsersField"
+                       promptText="Search users to add..."
+                       prefWidth="250"/>
+        </HBox>
+    </top>
+
+    <center>
+        <VBox spacing="15" style="-fx-padding: 0 40 40 40;">
+
+            <Label text="Current friends:"/>
+
+            <TableView fx:id="friendsTable" prefHeight="250">
+                <columns>
+                    <TableColumn fx:id="colFriendUsername" text="Username" prefWidth="200"/>
+                </columns>
+            </TableView>
+
+            <HBox spacing="10" alignment="CENTER_RIGHT">
+                <Button text="Remove Friend" onAction="#onRemoveFriend"/>
+            </HBox>
+
+            <Separator/>
+
+            <Label text="Search results:"/>
+
+            <TableView fx:id="searchResultsTable" prefHeight="200">
+                <columns>
+                    <TableColumn fx:id="colSearchUsername" text="Username" prefWidth="200"/>
+                </columns>
+            </TableView>
+
+            <HBox spacing="10" alignment="CENTER_RIGHT">
+                <Button text="Add Friend" onAction="#onAddFriend"/>
+                <Button text="Back" onAction="#onBack"/>
+            </HBox>
+
+        </VBox>
+    </center>
+
+</BorderPane>

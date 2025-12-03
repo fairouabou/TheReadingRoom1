@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.thereadingroom.ui.LoginController"
+            prefWidth="900" prefHeight="600"
+            style="-fx-background-color: #F8F1E7;">
+
+    <!-- Center container (login card) -->
+    <VBox alignment="CENTER" spacing="20" prefWidth="400"
+          layoutX="250" layoutY="150"
+          style="-fx-background-color: white;
+                 -fx-background-radius: 25;
+                 -fx-padding: 40;
+                 -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 20, 0.2, 0, 4);">
+
+        <!-- App Name -->
+        <Label text="The Reading Room"
+               style="-fx-font-size: 28px;
+                      -fx-font-weight: bold;
+                      -fx-text-fill: #4A4A4A;" />
+
+        <!-- Username -->
+        <TextField fx:id="usernameField"
+                   promptText="Username"
+                   style="-fx-background-radius: 20;
+                          -fx-padding: 10;" />
+
+        <!-- Password -->
+        <PasswordField fx:id="passwordField"
+                       promptText="Password"
+                       style="-fx-background-radius: 20;
+                              -fx-padding: 10;" />
+
+        <!-- Login Button -->
+        <Button fx:id="loginButton"
+                text="Login"
+                onAction="#onLogin"
+                style="-fx-background-color: #EFCFA6;
+                       -fx-background-radius: 20;
+                       -fx-padding: 10 30;
+                       -fx-font-size: 16px;" />
+
+        <!-- Register Link -->
+        <Hyperlink fx:id="registerLink"
+                   text="Don't have an account? Register"
+                   onAction="#onRegisterLink"
+                   style="-fx-text-fill: #A67A44;" />
+
+        <!-- Error Message Label -->
+        <Label fx:id="messageLabel"
+               text=""
+               style="-fx-font-size: 14px;" />
+
+    </VBox>
+
+</AnchorPane>

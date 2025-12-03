@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.thereadingroom.ui.AdminDashboardController"
+            prefWidth="1000" prefHeight="650"
+            style="-fx-background-color: #F8F1E7;">
+
+    <!-- Sidebar -->
+    <left>
+        <VBox spacing="20" prefWidth="220"
+              style="-fx-background-color: #E8D9C5; -fx-padding: 30;">
+
+            <Label text="Admin Panel"
+                   style="-fx-font-size: 22px; -fx-font-weight: bold;"/>
+
+            <Button text="Manage Books"
+                    fx:id="booksButton"
+                    onAction="#onManageBooks"
+                    style="-fx-background-color: #D7C4A3; -fx-font-size: 16px;"/>
+
+            <Button text="Manage Users"
+                    fx:id="usersButton"
+                    onAction="#onManageUsers"
+                    style="-fx-background-color: #D7C4A3; -fx-font-size: 16px;"/>
+
+            <Button text="Manage Discussions"
+                    fx:id="discussionsButton"
+                    onAction="#onManageDiscussions"
+                    style="-fx-background-color: #D7C4A3; -fx-font-size: 16px;"/>
+
+            <Button text="Analytics"
+                    onAction="#onAnalytics"
+                    style="-fx-background-color: #C8935B; -fx-font-size: 16px; -fx-font-weight: bold;"/>
+
+            <Separator/>
+
+            <Button text="Log Out"
+                    onAction="#onLogout"
+                    style="-fx-background-color: #C8935B; -fx-font-size: 16px;"/>
+        </VBox>
+    </left>
+
+    <!-- Main Content -->
+    <center>
+        <VBox spacing="16" style="-fx-padding: 40;">
+
+            <HBox spacing="12" alignment="CENTER_LEFT">
+                <Label text="My Library"
+                       style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <TextField fx:id="searchField"
+                           promptText="Search books..."
+                           prefWidth="250"/>
+            </HBox>
+
+            <TableView fx:id="booksTable" prefHeight="400">
+                <columns>
+                    <TableColumn fx:id="colTitle" text="Title" prefWidth="250"/>
+                    <TableColumn fx:id="colAuthor" text="Author" prefWidth="200"/>
+                    <TableColumn fx:id="colListType" text="List" prefWidth="150"/>
+                    <TableColumn fx:id="colRating" text="Rating" prefWidth="80"/>
+                </columns>
+            </TableView>
+
+            <HBox spacing="10" alignment="CENTER_RIGHT">
+                <Button text="Add" onAction="#onAddBook"/>
+                <Button text="Edit" onAction="#onEditBook"/>
+                <Button text="Delete" onAction="#onDeleteBook"/>
+            </HBox>
+
+        </VBox>
+    </center>
+
+</BorderPane>
